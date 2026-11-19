@@ -957,6 +957,7 @@ def main():
     sm.append("</urlset>")
     write("sitemap.xml", "\n".join(sm))
     write("robots.txt", "User-agent: *\nAllow: /\n\nSitemap: %s/sitemap.xml\n" % SITE)
+    write(".nojekyll", "")
     print("Built %d pages into %s" % (len(urls) + 1, OUT))
 
 
