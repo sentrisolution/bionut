@@ -18,7 +18,7 @@ To deploy, upload the contents of `public/` to the web root. Any static host wor
 
 ## Still to supply
 - Certificate numbers, issuing bodies, validity dates and PDF scans go in `CERTS` in `content.py`. Put the PDFs in `assets/certificates/` and set `"pdf": "file.pdf"`. Until then the pages show "Available on request" with a request button.
-  Expected files (one per card): `fssc-22000.pdf`, `iso-22000-2018.pdf`, `organic.pdf`, `sedex-membership.pdf`. Once `"pdf"` is set, the home-page card and the certificate page open that PDF in a new tab. Until then each card links to its own entry on the certifications page.
+  FSSC 22000 and EU Organic PDFs are in place. Still missing: an ISO 22000:2018 certificate and a public Sedex membership certificate. The SMETA audit report should not be published. Once `"pdf"` is set, the home-page card and the certificate page open that PDF in a new tab. Until then each card links to its own entry on the certifications page.
 - Certificate logos live in `assets/brand/certs/*.webp`. They were taken from the client's WhatsApp images, so they should be replaced with official vector or high-resolution files under the same names.
 - In-shell hazelnut product photo: `p-inshell` is still cropped from a branch photo (`img03`). Add a real in-shell product shot to `images/raw/` and point the `sq ... p-inshell` line in `tools/process_images.sh` at it.
 - Team job titles: `ABOUT["team"]` (currently "Management").
