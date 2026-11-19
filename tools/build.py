@@ -39,7 +39,7 @@ def page_path(key):
 
 
 def lang_prefix(lang):
-    return "" if lang == "en" else lang + "/"
+    return "" if lang == C.DEFAULT_LANG else lang + "/"
 
 
 class Ctx:
@@ -114,7 +114,7 @@ def tel(n):
 # ============================================================ layout
 def head(c, title, desc, og_img="og-image.jpg", extra=""):
     alts = "".join('<link rel="alternate" hreflang="%s" href="%s">' % (C.LANG_HTML[l], c.abs(lang=l)) for l in C.LANGS)
-    alts += '<link rel="alternate" hreflang="x-default" href="%s">' % c.abs(lang="en")
+    alts += '<link rel="alternate" hreflang="x-default" href="%s">' % c.abs(lang=C.DEFAULT_LANG)
     og_locale = {"en": "en_US", "az": "az_AZ", "ru": "ru_RU"}[c.lang]
     return f"""<!doctype html>
 <html lang="{C.LANG_HTML[c.lang]}">
@@ -776,12 +776,12 @@ def page_article(c, a):
 
 
 def page_404():
-    c = Ctx("en", "home")
+    c = Ctx(C.DEFAULT_LANG, "home")
     c.rel = "/"  # 404 is served from arbitrary depths; use root-absolute assets
     body = f"""<main id="main"><section class="page-hero" style="min-height:60vh;display:flex;align-items:center"><div class="wrap">
-<span class="eyebrow">404</span><h1>Page not found</h1><p class="lead" style="margin-bottom:32px">The page you are looking for has moved or no longer exists.</p>
-<a class="btn btn-primary" href="/">Back to homepage {ICON['arrow']}</a></div></section></main>"""
-    return head(c, "Page not found — Bionut", "Page not found") + header(c) + body + footer(c)
+<span class="eyebrow">404</span><h1>Səhifə tapılmadı</h1><p class="lead" style="margin-bottom:32px">Axtardığınız səhifə köçürülüb və ya artıq mövcud deyil. / Page not found.</p>
+<a class="btn btn-primary" href="/">Ana səhifəyə qayıt {ICON['arrow']}</a></div></section></main>"""
+    return head(c, "Səhifə tapılmadı — Bionut", "Səhifə tapılmadı") + header(c) + body + footer(c)
 
 
 # ============================================================ spec sheet PDFs (minimal writer)

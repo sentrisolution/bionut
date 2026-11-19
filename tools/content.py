@@ -3,7 +3,8 @@
 AZ and RU are translations. Edit here, then run `python3 tools/build.py`.
 """
 
-LANGS = ["en", "az", "ru"]
+LANGS = ["az", "en", "ru"]
+DEFAULT_LANG = "az"   # served at the site root; others under /en/, /ru/
 LANG_LABEL = {"en": "EN", "az": "AZ", "ru": "RU"}
 LANG_HTML = {"en": "en", "az": "az", "ru": "ru"}
 
