@@ -572,7 +572,8 @@ p { margin: 0 0 1em; }
 .footer-bottom .lang a[aria-current="true"] { color: var(--on-dark); }
 .footer-bottom .lang span { color: rgba(250,247,242,.25); }
 .footer-end { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; }
-.footer-bottom .credit { color: rgba(250,247,242,.55); }
+.footer-bottom .credit { color: rgba(250,247,242,.55); transition: color .2s; }
+.footer-bottom .credit:hover, .footer-bottom .credit:focus-visible { color: var(--gold); }
 @media (max-width: 1000px) { .footer-top { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .footer-top { grid-template-columns: 1fr; gap: 40px; } }
 

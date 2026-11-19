@@ -215,7 +215,7 @@ def footer(c):
     </div>
     <div class="footer-bottom">
       <span>{e(C.COMPANY['copyright'])}</span>
-      <div class="footer-end">{lang_switch(c)}<span class="credit">Created by Sentri Solutions</span></div>
+      <div class="footer-end">{lang_switch(c)}<a class="credit" href="https://sentri.az" target="_blank" rel="noopener">Created by Sentri Solutions</a></div>
     </div>
   </div>
 </footer>
