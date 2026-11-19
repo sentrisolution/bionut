@@ -657,7 +657,7 @@ def page_about(c):
 <section class="section">
   <div class="wrap">
     <div class="facts" style="margin-bottom:clamp(56px,8vw,96px)">{facts}</div>
-    <div class="section-head reveal" style="margin-bottom:40px"><div><span class="eyebrow">2005-2026</span><h2>{e(c.t(A['story_h']))}</h2></div></div>
+    <div class="section-head reveal" style="margin-bottom:40px"><div><span class="eyebrow">2005 / 2026</span><h2>{e(c.t(A['story_h']))}</h2></div></div>
     <div class="story reveal">{story}</div>
   </div>
 </section>
