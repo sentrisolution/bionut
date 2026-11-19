@@ -21,7 +21,8 @@ import content as C
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "public")
 SITE = "https://bionut.az"
-VERSION = "20261119"
+import hashlib as _h
+VERSION = _h.md5(b"".join(open(os.path.join(ROOT, "assets", f), "rb").read() for f in ("css/main.css", "js/main.js"))).hexdigest()[:8]
 
 e = html.escape
 
