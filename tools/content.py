@@ -61,16 +61,16 @@ UI = {
              "Минимальный объём заказа (MOQ): от 1 MT (1 000 кг). Для международных экспортных поставок рекомендуются полные паллеты или контейнерные партии (FCL/LCL) для оптимизации логистики."),
     "spec_table": T("Technical specification", "Texniki spesifikasiya", "Техническая спецификация"),
     "origin": T("Origin", "Mənşə", "Происхождение"),
-    "origin_val": T("Gabala, Azerbaijan — own orchards", "Qəbələ, Azərbaycan — öz bağlarımız", "Габала, Азербайджан — собственные сады"),
+    "origin_val": T("Gabala, Azerbaijan (own orchards)", "Qəbələ, Azərbaycan (öz bağlarımız)", "Габала, Азербайджан (собственные сады)"),
     "breadcrumb_home": T("Home", "Ana səhifə", "Главная"),
     "back_insights": T("All insights", "Bütün məqalələr", "Все статьи"),
     "source": T("Source", "Mənbə", "Источник"),
     "sources": T("Sources", "Mənbələr", "Источники"),
     "published": T("Published", "Dərc edilib", "Опубликовано"),
     "min_read": T("min read", "dəq oxu", "мин чтения"),
-    "footer_tag": T("Premium hazelnut ingredients from our own orchards in Gabala, Azerbaijan — cultivated, processed and supplied to food manufacturers worldwide since 2005.",
-                    "Qəbələdəki öz bağlarımızdan premium fındıq inqrediyentləri — 2005-ci ildən bəri yetişdirilir, emal olunur və dünya üzrə qida istehsalçılarına təqdim edilir.",
-                    "Премиальные ингредиенты из фундука из собственных садов в Габале, Азербайджан — выращиваем, перерабатываем и поставляем производителям продуктов питания по всему миру с 2005 года."),
+    "footer_tag": T("Premium hazelnut ingredients from our own orchards in Gabala, Azerbaijan, cultivated, processed and supplied to food manufacturers worldwide since 2005.",
+                    "Qəbələdəki öz bağlarımızdan premium fındıq inqrediyentləri, 2005-ci ildən bəri yetişdirilir, emal olunur və dünya üzrə qida istehsalçılarına təqdim edilir.",
+                    "Премиальные ингредиенты из фундука из собственных садов в Габале, Азербайджан, выращиваем, перерабатываем и поставляем производителям продуктов питания по всему миру с 2005 года."),
     "footer_company": T("Company", "Şirkət", "Компания"),
     "footer_products": T("Products", "Məhsullar", "Продукция"),
     "footer_contact": T("Contact", "Əlaqə", "Контакты"),
@@ -86,9 +86,9 @@ UI = {
 
 # ---------------------------------------------------------------- home
 HOME = {
-    "title": T("Bionut — Premium Hazelnut Ingredients from Azerbaijan",
-               "Bionut — Azərbaycandan Premium Fındıq İnqrediyentləri",
-               "Bionut — премиальные ингредиенты из фундука из Азербайджана"),
+    "title": T("Bionut | Premium Hazelnut Ingredients from Azerbaijan",
+               "Bionut | Azərbaycandan Premium Fındıq İnqrediyentləri",
+               "Bionut | премиальные ингредиенты из фундука из Азербайджана"),
     "meta": T("Bionut cultivates, processes and supplies premium hazelnut kernels, roasted, chopped and flour products from 500+ hectares of own orchards in Gabala, Azerbaijan. FSSC 22000 & ISO 22000 certified.",
               "Bionut Qəbələdəki 500+ hektar öz bağlarından premium fındıq ləpəsi, qovrulmuş, doğranmış fındıq və fındıq unu yetişdirir, emal edir və tədarük edir. FSSC 22000 və ISO 22000 sertifikatlı.",
               "Bionut выращивает, перерабатывает и поставляет ядра фундука, обжаренный, дроблёный фундук и муку из 500+ гектаров собственных садов в Габале, Азербайджан. Сертификаты FSSC 22000 и ISO 22000."),
@@ -98,12 +98,36 @@ HOME = {
             "Премиальные ингредиенты из фундука из Азербайджана"),
     "lead": T("From our own orchards in Gabala to global markets. We cultivate, process and supply premium hazelnut ingredients for international food manufacturers.",
               "Qəbələdəki öz bağlarımızdan qlobal bazarlara. Beynəlxalq qida istehsalçıları üçün premium fındıq inqrediyentlərini yetişdirir, emal edir və tədarük edirik.",
-              "Из собственных садов в Габале — на мировые рынки. Мы выращиваем, перерабатываем и поставляем премиальные ингредиенты из фундука для международных производителей продуктов питания."),
+              "Из собственных садов в Габале, на мировые рынки. Мы выращиваем, перерабатываем и поставляем премиальные ингредиенты из фундука для международных производителей продуктов питания."),
     "cta1": T("Explore Our Products", "Məhsullarımızla tanış olun", "Наша продукция"),
     "cta2": T("Contact Our Sales Team", "Satış komandamızla əlaqə", "Связаться с отделом продаж"),
     "hero_caption": T("Own orchards at the foot of the Greater Caucasus, Gabala",
                       "Böyük Qafqazın ətəyində öz bağlarımız, Qəbələ",
                       "Собственные сады у подножия Большого Кавказа, Габала"),
+    "slides": [
+        ("hero-orchard", T("Orchards", "Bağlar", "Сады"),
+         T("500+ hectares of own orchards at the foot of the Greater Caucasus", "Böyük Qafqazın ətəyində 500+ hektar öz bağlarımız", "500+ гектаров собственных садов у подножия Большого Кавказа")),
+        ("hero-branch", T("Harvest", "Məhsul", "Урожай"),
+         T("Hazelnuts ripening on the branch in Gabala", "Qəbələdə budaqda yetişən fındıq", "Фундук созревает на ветвях в Габале")),
+        ("orchard-rows", T("Cultivation", "Yetişdirmə", "Выращивание"),
+         T("Ecological orchard care by specialists with 20+ years of experience", "20+ il təcrübəli mütəxəssislərin ekoloji bağ qulluğu", "Экологичный уход за садами специалистами с 20+ летним опытом")),
+        ("warehouse-pallets", T("Export", "İxrac", "Экспорт"),
+         T("Processed, packed and shipped to food manufacturers worldwide", "Emal olunur, qablaşdırılır və dünya üzrə qida istehsalçılarına göndərilir", "Перерабатывается, упаковывается и отгружается производителям по всему миру")),
+    ],
+    "scroll": T("Scroll", "Aşağı", "Вниз"),
+    "marquee": [
+        T("Natural Hazelnut Kernels", "Təbii Fındıq Ləpəsi", "Натуральные ядра фундука"),
+        T("FSSC 22000", "FSSC 22000", "FSSC 22000"),
+        T("Blanched Kernels", "Blanşirovka Edilmiş Ləpə", "Бланшированные ядра"),
+        T("ISO 22000:2018", "ISO 22000:2018", "ISO 22000:2018"),
+        T("Roasted Kernels", "Qovrulmuş Ləpə", "Обжаренные ядра"),
+        T("Organic / Bio", "Üzvi / Bio", "Органик / Bio"),
+        T("Roasted & Chopped", "Qovrulmuş və Doğranmış", "Обжаренный дроблёный"),
+        T("SEDEX Member", "SEDEX Üzvü", "Член SEDEX"),
+        T("Hazelnut Flour", "Fındıq Unu", "Ореховая мука"),
+        T("In-Shell Hazelnuts", "Qabıqlı Fındıq", "Фундук в скорлупе"),
+        T("Made in Gabala, Azerbaijan", "Qəbələ, Azərbaycan istehsalı", "Произведено в Габале, Азербайджан"),
+    ],
     "stats": [
         ("500", "+", T("Hectares of Own Orchards", "Hektar öz fındıq bağları", "Гектаров собственных садов")),
         ("7,000", "+", T("Tons Annual Production Volume", "Ton illik istehsal həcmi", "Тонн годового объёма производства")),
@@ -113,10 +137,10 @@ HOME = {
     "intro_eyebrow": T("Orchard to market", "Bağdan bazara", "От сада до рынка"),
     "intro_h": T("One company. Every step under our own control.",
                  "Bir şirkət. Hər mərhələ öz nəzarətimizdə.",
-                 "Одна компания. Каждый этап — под нашим контролем."),
-    "intro_p": T("Bionut grows hazelnuts on more than 500 hectares of its own orchards in Gabala, in the foothills of the Greater Caucasus. Harvest, processing, laboratory control and export packing all take place within one integrated operation — giving food manufacturers consistent quality, full traceability and a reliable partner for long-term supply.",
-                 "Bionut fındığı Böyük Qafqazın ətəklərində, Qəbələdəki 500 hektardan çox öz bağlarında yetişdirir. Məhsul yığımı, emal, laboratoriya nəzarəti və ixrac qablaşdırması vahid inteqrasiya olunmuş istehsal daxilində həyata keçirilir — bu da qida istehsalçılarına sabit keyfiyyət, tam izlənilmə və uzunmüddətli tədarük üçün etibarlı tərəfdaş təmin edir.",
-                 "Bionut выращивает фундук на более чем 500 гектарах собственных садов в Габале, в предгорьях Большого Кавказа. Сбор урожая, переработка, лабораторный контроль и экспортная упаковка выполняются в рамках единого интегрированного производства — это обеспечивает производителям стабильное качество, полную прослеживаемость и надёжного партнёра для долгосрочных поставок."),
+                 "Одна компания. Каждый этап, под нашим контролем."),
+    "intro_p": T("Bionut grows hazelnuts on more than 500 hectares of its own orchards in Gabala, in the foothills of the Greater Caucasus. Harvest, processing, laboratory control and export packing all take place within one integrated operation, giving food manufacturers consistent quality, full traceability and a reliable partner for long-term supply.",
+                 "Bionut fındığı Böyük Qafqazın ətəklərində, Qəbələdəki 500 hektardan çox öz bağlarında yetişdirir. Məhsul yığımı, emal, laboratoriya nəzarəti və ixrac qablaşdırması vahid inteqrasiya olunmuş istehsal daxilində həyata keçirilir, bu da qida istehsalçılarına sabit keyfiyyət, tam izlənilmə və uzunmüddətli tədarük üçün etibarlı tərəfdaş təmin edir.",
+                 "Bionut выращивает фундук на более чем 500 гектарах собственных садов в Габале, в предгорьях Большого Кавказа. Сбор урожая, переработка, лабораторный контроль и экспортная упаковка выполняются в рамках единого интегрированного производства, это обеспечивает производителям стабильное качество, полную прослеживаемость и надёжного партнёра для долгосрочных поставок."),
     "intro_points": [
         T("Organic and conventional production", "Üzvi və ənənəvi istehsal", "Органическое и традиционное производство"),
         T("In-house laboratory and metal detection", "Daxili laboratoriya və metal detektor", "Собственная лаборатория и металлодетекция"),
@@ -128,12 +152,12 @@ HOME = {
                     "Sənaye qida istehsalı üçün fındıq inqrediyentləri",
                     "Ингредиенты из фундука для пищевой промышленности"),
     "products_p": T("Six product lines, each processed to precise moisture and size specifications and available in bulk and retail packaging.",
-                    "Altı məhsul xətti — hər biri dəqiq rütubət və ölçü spesifikasiyalarına uyğun emal olunur, toplu və pərakəndə qablaşdırmada təqdim edilir.",
-                    "Шесть продуктовых линеек — каждая обрабатывается по точным спецификациям влажности и размера и поставляется в оптовой и розничной упаковке."),
+                    "Altı məhsul xətti, hər biri dəqiq rütubət və ölçü spesifikasiyalarına uyğun emal olunur, toplu və pərakəndə qablaşdırmada təqdim edilir.",
+                    "Шесть продуктовых линеек, каждая обрабатывается по точным спецификациям влажности и размера и поставляется в оптовой и розничной упаковке."),
     "process_eyebrow": T("Process & quality", "Proses və keyfiyyət", "Процесс и качество"),
     "process_h": T("From blossom to container in four controlled stages",
                    "Çiçəkdən konteynerə qədər dörd nəzarətli mərhələ",
-                   "От цветения до контейнера — четыре контролируемых этапа"),
+                   "От цветения до контейнера: четыре контролируемых этапа"),
     "process_link": T("Our process in detail", "Prosesimiz ətraflı", "Подробнее о процессе"),
     "quality_h": T("A quality system built into every batch", "Hər partiyaya inteqrasiya olunmuş keyfiyyət sistemi", "Система качества в каждой партии"),
     "cert_eyebrow": T("Certifications", "Sertifikatlar", "Сертификаты"),
@@ -229,9 +253,9 @@ PROCESS_PAGE = {
               "Как Bionut выращивает, перерабатывает, проверяет и экспортирует фундук: четыре контролируемых этапа и система качества с собственной лабораторией, металлодетекцией и полной прослеживаемостью."),
     "eyebrow": T("Process & quality", "Proses və keyfiyyət", "Процесс и качество"),
     "h1": T("Integrated from orchard to shipment", "Bağdan göndərişə qədər inteqrasiya olunmuş", "Интеграция от сада до отгрузки"),
-    "lead": T("Because we grow, process and pack our own hazelnuts, every stage is managed by our own team — with controls that protect quality, safety and consistency for our customers.",
-              "Fındığımızı özümüz yetişdirdiyimiz, emal etdiyimiz və qablaşdırdığımız üçün hər mərhələ öz komandamız tərəfindən idarə olunur — müştərilərimiz üçün keyfiyyəti, təhlükəsizliyi və sabitliyi qoruyan nəzarətlərlə.",
-              "Поскольку мы сами выращиваем, перерабатываем и упаковываем фундук, каждый этап находится под управлением нашей команды — с контролем, который гарантирует клиентам качество, безопасность и стабильность."),
+    "lead": T("Because we grow, process and pack our own hazelnuts, every stage is managed by our own team, with controls that protect quality, safety and consistency for our customers.",
+              "Fındığımızı özümüz yetişdirdiyimiz, emal etdiyimiz və qablaşdırdığımız üçün hər mərhələ öz komandamız tərəfindən idarə olunur, müştərilərimiz üçün keyfiyyəti, təhlükəsizliyi və sabitliyi qoruyan nəzarətlərlə.",
+              "Поскольку мы сами выращиваем, перерабатываем и упаковываем фундук, каждый этап находится под управлением нашей команды, с контролем, который гарантирует клиентам качество, безопасность и стабильность."),
     "stages_h": T("Four production stages", "Dörd istehsal mərhələsi", "Четыре этапа производства"),
     "quality_eyebrow": T("Quality system", "Keyfiyyət sistemi", "Система качества"),
     "quality_h": T("Six controls behind every shipment", "Hər göndərişin arxasında altı nəzarət", "Шесть видов контроля в каждой поставке"),
@@ -264,7 +288,7 @@ PRODUCTS = [
         "slug": "blanched-hazelnut-kernels", "img": "p-blanched", "gallery": ["g-blanched-vacuum"],
         "name": T("Blanched Hazelnut Kernels", "Blanşirovka Edilmiş Fındıq Ləpəsi", "Бланшированные ядра фундука"),
         "short": T("Carefully blanched hazelnut kernels with the skin removed, suitable for various food manufacturing applications.",
-                   "Qabığı təmizlənmiş, diqqətlə blanşirovka edilmiş fındıq ləpəsi — müxtəlif qida istehsalı sahələri üçün.",
+                   "Qabığı təmizlənmiş, diqqətlə blanşirovka edilmiş fındıq ləpəsi, müxtəlif qida istehsalı sahələri üçün.",
                    "Тщательно бланшированные ядра фундука без кожицы для различных пищевых производств."),
         "long": T("Gentle heat treatment removes the inner skin, revealing a clean, ivory-coloured kernel with a mild, buttery taste. Blanched kernels give a smooth colour and texture in pralines, fillings, ice cream and premium bakery.",
                   "Yumşaq istilik emalı daxili qabığı təmizləyir və zərif, kərəyağı dadlı, fil sümüyü rəngli təmiz ləpə əldə edilir. Blanşirovka edilmiş ləpə pralinlərdə, içliklərdə, dondurmada və premium çörək-bulka məmulatlarında hamar rəng və tekstura verir.",
@@ -282,7 +306,7 @@ PRODUCTS = [
         "slug": "roasted-hazelnut-kernels", "img": "p-roasted", "gallery": ["p-blanched"],
         "name": T("Roasted Hazelnut Kernels", "Qovrulmuş Fındıq Ləpəsi", "Обжаренные ядра фундука"),
         "short": T("Carefully roasted hazelnut kernels with a rich flavour and aroma, suitable for confectionery and food manufacturing.",
-                   "Zəngin dad və ətirli, diqqətlə qovrulmuş fındıq ləpəsi — qənnadı və qida istehsalı üçün.",
+                   "Zəngin dad və ətirli, diqqətlə qovrulmuş fındıq ləpəsi, qənnadı və qida istehsalı üçün.",
                    "Тщательно обжаренные ядра фундука с насыщенным вкусом и ароматом для кондитерского и пищевого производства."),
         "long": T("Roasted under controlled time and temperature to develop a deep golden colour, crunchy texture and the characteristic aroma that defines premium hazelnut products.",
                   "Dərin qızılı rəng, xırtıldayan tekstura və premium fındıq məhsullarını fərqləndirən xarakterik ətir əldə etmək üçün nəzarət olunan vaxt və temperaturda qovrulur.",
@@ -303,7 +327,7 @@ PRODUCTS = [
                    "Sənaye qida tətbiqləri üçün müxtəlif hissəcik ölçülərində emal olunmuş qovrulmuş fındıq.",
                    "Обжаренный фундук, измельчённый до разных размеров частиц для промышленного применения."),
         "long": T("Roasted kernels are chopped and sieved into tightly controlled particle sizes, delivering consistent coverage and crunch as inclusions, toppings and coatings.",
-                  "Qovrulmuş ləpələr doğranır və ciddi nəzarət olunan hissəcik ölçülərinə ələnir — daxiletmə, üzlük və örtük kimi sabit örtmə və xırtıldama təmin edir.",
+                  "Qovrulmuş ləpələr doğranır və ciddi nəzarət olunan hissəcik ölçülərinə ələnir, daxiletmə, üzlük və örtük kimi sabit örtmə və xırtıldama təmin edir.",
                   "Обжаренные ядра дробятся и просеиваются до строго контролируемых фракций, обеспечивая равномерное покрытие и хруст в качестве включений, посыпок и обсыпок."),
         "moisture": "2–3%", "size_kind": "sizes", "sizes": ["0–2 mm", "2–4 mm", "4–6 mm"],
         "packaging": T("200 g, 400 g retail packs · 20 kg, 25 kg vacuum bags",
@@ -321,7 +345,7 @@ PRODUCTS = [
                    "Qənnadı, çörək-bulka və digər qida istehsalı sahələri üçün incə üyüdülmüş fındıq unu.",
                    "Тонко измельчённая мука из фундука для кондитерских, хлебопекарных и других пищевых производств."),
         "long": T("Milled from selected kernels into a fine, free-flowing flour that adds rich hazelnut flavour, moisture and structure to pastries, fillings and gluten-free recipes.",
-                  "Seçilmiş ləpələrdən üyüdülən incə, axıcı un — xəmir məmulatlarına, içliklərə və qlütensiz reseptlərə zəngin fındıq dadı, nəmlik və struktur verir.",
+                  "Seçilmiş ləpələrdən üyüdülən incə, axıcı un, xəmir məmulatlarına, içliklərə və qlütensiz reseptlərə zəngin fındıq dadı, nəmlik və struktur verir.",
                   "Мелкая сыпучая мука из отборных ядер придаёт выпечке, начинкам и безглютеновым рецептам насыщенный ореховый вкус, влажность и структуру."),
         "moisture": "Max. 2.5%", "size_kind": "sizes", "sizes": ["0–2 mm", "0–3 mm"],
         "packaging": T("90 g, 200 g, 400 g retail packs · 20 kg, 22 kg vacuum bags",
@@ -384,10 +408,10 @@ CERTS = [
                "Сертификация нашего органического производства фундука, доступного наряду с традиционным."),
      "number": None, "issuer": None, "valid": None, "pdf": None},
     {"code": "SEDEX", "mark": "SEDEX\nMEMBER",
-     "name": T("SEDEX — Membership / Social Audit", "SEDEX — Üzvlük / Sosial Audit", "SEDEX — членство / социальный аудит"),
+     "name": T("SEDEX: Membership / Social Audit", "SEDEX: Üzvlük / Sosial Audit", "SEDEX: членство / социальный аудит"),
      "desc": T("Member of SEDEX, the ethical trade platform for responsible sourcing, labour standards and social audits.",
                "Məsuliyyətli tədarük, əmək standartları və sosial auditlər üzrə etik ticarət platforması olan SEDEX-in üzvü.",
-               "Участник SEDEX — платформы этичной торговли по ответственным закупкам, трудовым стандартам и социальным аудитам."),
+               "Участник SEDEX, платформы этичной торговли по ответственным закупкам, трудовым стандартам и социальным аудитам."),
      "number": None, "issuer": None, "valid": None, "pdf": None},
 ]
 
@@ -417,13 +441,13 @@ ABOUT = {
               "С 2005 года ОАО «Гилан Габала» (Bionut) выращивает, перерабатывает и экспортирует фундук из собственных садов в Габале, Азербайджан."),
     "eyebrow": T("About Bionut", "Bionut haqqında", "О компании Bionut"),
     "h1": T("Two decades of Azerbaijani hazelnut expertise", "Azərbaycan fındığında iki onillik təcrübə", "Два десятилетия опыта в азербайджанском фундуке"),
-    "lead": T("Founded in 2005 in Gabala, Gilan Gabala Food Products Manufacturing OJSC — trading as Bionut — has grown into one of Azerbaijan's leading hazelnut exporters.",
-              "2005-ci ildə Qəbələdə təsis edilmiş “Gilan Qəbələ Qida Məhsullarının İstehsalı” ASC — Bionut brendi ilə — Azərbaycanın aparıcı fındıq ixracatçılarından birinə çevrilib.",
+    "lead": T("Founded in 2005 in Gabala, Gilan Gabala Food Products Manufacturing OJSC, trading as Bionut, has grown into one of Azerbaijan's leading hazelnut exporters.",
+              "2005-ci ildə Qəbələdə təsis edilmiş “Gilan Qəbələ Qida Məhsullarının İstehsalı” ASC, Bionut brendi ilə, Azərbaycanın aparıcı fındıq ixracatçılarından birinə çevrilib.",
               "Основанное в 2005 году в Габале ОАО «Гилан Габала по производству пищевых продуктов», работающее под брендом Bionut, стало одним из ведущих экспортёров фундука Азербайджана."),
     "story_h": T("Our story", "Tariximiz", "Наша история"),
     "story": [
         T("Gabala lies in the foothills of the Greater Caucasus, where fertile soils, mountain air and reliable rainfall create some of the finest hazelnut-growing conditions in the region. It is here, in 2005, that Gilan Gabala Food Products Manufacturing OJSC began cultivating and exporting hazelnuts.",
-          "Qəbələ Böyük Qafqazın ətəklərində yerləşir — burada münbit torpaq, dağ havası və sabit yağıntılar regionda fındıq yetişdirilməsi üçün ən yaxşı şəraiti yaradır. Məhz burada, 2005-ci ildə “Gilan Qəbələ Qida Məhsullarının İstehsalı” ASC fındıq yetişdirməyə və ixrac etməyə başladı.",
+          "Qəbələ Böyük Qafqazın ətəklərində yerləşir, burada münbit torpaq, dağ havası və sabit yağıntılar regionda fındıq yetişdirilməsi üçün ən yaxşı şəraiti yaradır. Məhz burada, 2005-ci ildə “Gilan Qəbələ Qida Məhsullarının İstehsalı” ASC fındıq yetişdirməyə və ixrac etməyə başladı.",
           "Габала расположена в предгорьях Большого Кавказа, где плодородные почвы, горный воздух и стабильные осадки создают одни из лучших условий для выращивания фундука в регионе. Именно здесь в 2005 году ОАО «Гилан Габала» начало выращивать и экспортировать фундук."),
         T("Today, all agronomic care across our 500+ hectares of orchards is carried out by specialists with more than 20 years of experience, in line with ecological production standards. We produce and export both organic and conventional hazelnuts.",
           "Bu gün 500+ hektar bağlarımızda bütün aqrotexniki qulluq ekoloji istehsal standartlarına uyğun olaraq 20 ildən artıq təcrübəyə malik mütəxəssislər tərəfindən həyata keçirilir. Biz həm üzvi, həm də ənənəvi fındıq istehsal və ixrac edirik.",
@@ -520,17 +544,17 @@ ARTICLES = [
         "read": 4,
         "tag": T("Market update", "Bazar icmalı", "Обзор рынка"),
         "title": T("2026 Hazelnut Crop Update & Outlook", "2026 Fındıq Məhsulu: Yenilik və Proqnoz", "Урожай фундука 2026: обзор и прогноз"),
-        "excerpt": T("Türkiye's crop forecast, export performance and stock outlook, plus harvest reports from Italy, the USA and Chile — what the 2026/27 season looks like for buyers.",
-                     "Türkiyənin məhsul proqnozu, ixrac göstəriciləri və ehtiyat proqnozu, həmçinin İtaliya, ABŞ və Çilidən məhsul hesabatları — alıcılar üçün 2026/27 mövsümü.",
-                     "Прогноз урожая Турции, экспорт и запасы, а также отчёты из Италии, США и Чили — каким будет сезон 2026/27 для покупателей."),
-        "sources": [("International Nut & Dried Fruit Council (INC) — Hazelnut Crop Update & Outlook, 12 Nov 2026",
+        "excerpt": T("Türkiye's crop forecast, export performance and stock outlook, plus harvest reports from Italy, the USA and Chile, what the 2026/27 season looks like for buyers.",
+                     "Türkiyənin məhsul proqnozu, ixrac göstəriciləri və ehtiyat proqnozu, həmçinin İtaliya, ABŞ və Çilidən məhsul hesabatları, alıcılar üçün 2026/27 mövsümü.",
+                     "Прогноз урожая Турции, экспорт и запасы, а также отчёты из Италии, США и Чили, каким будет сезон 2026/27 для покупателей."),
+        "sources": [("International Nut & Dried Fruit Council (INC), Hazelnut Crop Update & Outlook, 12 Nov 2026",
                      "https://inc.nutfruit.org/hazelnut-crop-update-outlook-2/")],
         "body": T(
             """<p>The International Nut &amp; Dried Fruit Council (INC) published its latest hazelnut crop update in November 2026, based on information gathered between mid-September and October. Here is a summary of the key figures and what they mean for buyers.</p>
 <h2>Türkiye: a slightly smaller forecast</h2>
 <p>The Black Sea Hazelnut Exporters' Association trimmed its 2026 crop estimate to <strong>803,770 MT (in-shell basis)</strong>, down from 805,246 MT in late July, after further orchard assessments of kernel size and yield. The kernel recovery ratio is estimated at 50%.</p>
 <ul>
-<li><strong>2025/26 exports:</strong> 197,085 MT kernel equivalent — 36% below 2024/25 — worth US$2.51 billion.</li>
+<li><strong>2025/26 exports:</strong> 197,085 MT kernel equivalent, 36% below 2024/25, worth US$2.51 billion.</li>
 <li><strong>September 2026</strong> (first month of the new season): 18,929 MT exported, up 36% year on year, valued at US$192.1 million.</li>
 <li><strong>TMO purchases:</strong> around 77,000 MT in-shell bought so far, with a further 100,000 MT scheduled for delivery.</li>
 <li><strong>Ending stocks 2026/27:</strong> tentatively 270,000 MT, as exports have been moving more slowly than usual.</li>
@@ -538,12 +562,12 @@ ARTICLES = [
 <h2>Italy, USA and Chile</h2>
 <p><strong>Italy</strong> proved resilient despite an exceptionally long, record-hot summer, with a crop estimated above average. In the <strong>USA</strong>, the Oregon harvest started in September in excellent weather; the crop looks slightly larger than forecast, with normal sizing and excellent kernel quality. In <strong>Chile</strong>, winter and spring conditions were favourable, and new orchards entering production should lift the 2027 crop.</p>
 <h2>What it means for buyers</h2>
-<p>A comfortable stock position in Türkiye and solid crops in Italy and the USA point to a well-supplied 2026/27 season, with confectionery demand rebuilding after the high prices of 2025. For manufacturers, it is a good moment to diversify origins and secure consistent, traceable supply. Azerbaijani hazelnuts — grown in the Gabala region and processed under certified food safety systems — offer a reliable complement to traditional origins.</p>""",
+<p>A comfortable stock position in Türkiye and solid crops in Italy and the USA point to a well-supplied 2026/27 season, with confectionery demand rebuilding after the high prices of 2025. For manufacturers, it is a good moment to diversify origins and secure consistent, traceable supply. Azerbaijani hazelnuts, grown in the Gabala region and processed under certified food safety systems, offer a reliable complement to traditional origins.</p>""",
             """<p>Beynəlxalq Qoz-fındıq və Quru Meyvə Şurası (INC) 2026-cı ilin noyabrında sentyabrın ortası – oktyabr aylarında toplanmış məlumatlar əsasında fındıq məhsulu üzrə son icmalını dərc edib. Əsas rəqəmlər və onların alıcılar üçün mənası aşağıda təqdim olunur.</p>
 <h2>Türkiyə: bir qədər azaldılmış proqnoz</h2>
 <p>Qara dəniz Fındıq İxracatçıları Assosiasiyası ləpə ölçüsü və məhsuldarlıq üzrə əlavə qiymətləndirmələrdən sonra 2026-cı il məhsul proqnozunu iyulun sonundakı 805 246 MT-dan <strong>803 770 MT-a (qabıqlı əsasda)</strong> endirib. Ləpə çıxımı 50% qiymətləndirilir.</p>
 <ul>
-<li><strong>2025/26 ixracı:</strong> 197 085 MT ləpə ekvivalenti — 2024/25-dən 36% az — dəyəri 2,51 milyard ABŞ dolları.</li>
+<li><strong>2025/26 ixracı:</strong> 197 085 MT ləpə ekvivalenti, 2024/25-dən 36% az, dəyəri 2,51 milyard ABŞ dolları.</li>
 <li><strong>Sentyabr 2026</strong> (yeni mövsümün ilk ayı): 18 929 MT ixrac, illik 36% artım, dəyəri 192,1 milyon ABŞ dolları.</li>
 <li><strong>TMO alışları:</strong> indiyədək təxminən 77 000 MT qabıqlı fındıq alınıb, əlavə 100 000 MT-ın təhvili planlaşdırılır.</li>
 <li><strong>2026/27 mövsüm sonu ehtiyatları:</strong> ixracın adi haldan yavaş getməsi səbəbindən ilkin olaraq 270 000 MT.</li>
@@ -552,11 +576,11 @@ ARTICLES = [
 <p><strong>İtaliyada</strong> müstəsna dərəcədə uzun və rekord isti yaya baxmayaraq istehsal davamlı qalıb, məhsul ortadan yuxarı qiymətləndirilir. <strong>ABŞ-da</strong> Oreqonda yığım sentyabrda əla hava şəraitində başlayıb; məhsul proqnozdan bir qədər çox, ölçülər normal, ləpə keyfiyyəti isə əladır. <strong>Çilidə</strong> qış və yaz şəraiti əlverişli olub, istehsala daxil olan yeni bağlar 2027-ci il məhsulunu artırmalıdır.</p>
 <h2>Alıcılar üçün nə deməkdir</h2>
 <p>Türkiyədə rahat ehtiyat vəziyyəti, İtaliya və ABŞ-da sabit məhsul 2026/27 mövsümünün yaxşı təchiz olunacağını göstərir; qənnadı tələbatı isə 2025-ci ilin yüksək qiymətlərindən sonra bərpa olunur. İstehsalçılar üçün mənşə ölkələrini şaxələndirmək və sabit, izlənilə bilən tədarükü təmin etmək üçün əlverişli məqamdır. Qəbələ bölgəsində yetişdirilən və sertifikatlı qida təhlükəsizliyi sistemləri ilə emal olunan Azərbaycan fındığı ənənəvi mənşələrə etibarlı əlavədir.</p>""",
-            """<p>Международный совет по орехам и сухофруктам (INC) в ноябре 2026 года опубликовал свежий обзор урожая фундука на основе данных, собранных с середины сентября по октябрь. Ниже — ключевые цифры и их значение для покупателей.</p>
+            """<p>Международный совет по орехам и сухофруктам (INC) в ноябре 2026 года опубликовал свежий обзор урожая фундука на основе данных, собранных с середины сентября по октябрь. Ниже приведены ключевые цифры и их значение для покупателей.</p>
 <h2>Турция: немного сниженный прогноз</h2>
 <p>Ассоциация экспортёров фундука Черноморского региона после дополнительной оценки размера ядра и урожайности снизила прогноз урожая 2026 года до <strong>803 770 MT (в скорлупе)</strong> против 805 246 MT в конце июля. Выход ядра оценивается в 50%.</p>
 <ul>
-<li><strong>Экспорт 2025/26:</strong> 197 085 MT в пересчёте на ядро — на 36% меньше, чем в 2024/25, — на сумму 2,51 млрд долларов США.</li>
+<li><strong>Экспорт 2025/26:</strong> 197 085 MT в пересчёте на ядро, на 36% меньше, чем в 2024/25,, на сумму 2,51 млрд долларов США.</li>
 <li><strong>Сентябрь 2026</strong> (первый месяц нового сезона): экспорт 18 929 MT, рост на 36% в годовом выражении, стоимость 192,1 млн долларов США.</li>
 <li><strong>Закупки TMO:</strong> около 77 000 MT фундука в скорлупе, ещё 100 000 MT запланированы к поставке.</li>
 <li><strong>Конечные запасы 2026/27:</strong> предварительно 270 000 MT, так как экспорт идёт медленнее обычного.</li>
@@ -564,7 +588,7 @@ ARTICLES = [
 <h2>Италия, США и Чили</h2>
 <p><strong>Италия</strong> сохранила устойчивость, несмотря на исключительно долгое и рекордно жаркое лето: урожай оценивается выше среднего. В <strong>США</strong> сбор в Орегоне начался в сентябре при отличной погоде; урожай немного выше прогноза, калибровка в норме, качество ядра отличное. В <strong>Чили</strong> зима и весна были благоприятными, а новые сады, вступающие в плодоношение, должны увеличить урожай 2027 года.</p>
 <h2>Что это значит для покупателей</h2>
-<p>Комфортные запасы в Турции и хорошие урожаи в Италии и США указывают на хорошо обеспеченный сезон 2026/27, а спрос со стороны кондитерской отрасли восстанавливается после высоких цен 2025 года. Для производителей это удачный момент диверсифицировать происхождение сырья и обеспечить стабильные, прослеживаемые поставки. Азербайджанский фундук из Габалинского региона, переработанный по сертифицированным системам безопасности, — надёжное дополнение к традиционным источникам.</p>"""),
+<p>Комфортные запасы в Турции и хорошие урожаи в Италии и США указывают на хорошо обеспеченный сезон 2026/27, а спрос со стороны кондитерской отрасли восстанавливается после высоких цен 2025 года. Для производителей это удачный момент диверсифицировать происхождение сырья и обеспечить стабильные, прослеживаемые поставки. Азербайджанский фундук из Габалинского региона, переработанный по сертифицированным системам безопасности,, надёжное дополнение к традиционным источникам.</p>"""),
     },
     {
         "slug": "post-harvest-management-aflatoxin",
@@ -573,48 +597,48 @@ ARTICLES = [
         "read": 5,
         "tag": T("Food safety research", "Qida təhlükəsizliyi araşdırması", "Исследование безопасности"),
         "title": T("Post-harvest Management and Aflatoxin Contamination", "Məhsul Yığımından Sonrakı İdarəetmə və Aflatoksin Çirklənməsi", "Послеуборочная обработка и загрязнение афлатоксинами"),
-        "excerpt": T("A three-year study of Azerbaijani hazelnuts, published in 2026, finds that drying — more than storage — determines aflatoxin risk. Key findings for buyers and producers.",
+        "excerpt": T("A three-year study of Azerbaijani hazelnuts, published in 2026, finds that drying, more than storage, determines aflatoxin risk. Key findings for buyers and producers.",
                      "2026-cı ildə dərc edilmiş, Azərbaycan fındığı üzrə üç illik araşdırma göstərir ki, aflatoksin riskini saxlamadan çox qurutma müəyyən edir. Alıcılar və istehsalçılar üçün əsas nəticələr.",
                      "Трёхлетнее исследование азербайджанского фундука, опубликованное в 2026 году, показывает, что риск афлатоксинов определяет прежде всего сушка, а не хранение. Главные выводы."),
         "sources": [
-            ("Casu A., Chiusa G., Zagottis E., Genova G., Battilani P. — Effect of Post-Harvest Management on Aspergillus flavus Growth and Aflatoxin Contamination of Stored Hazelnuts. Toxins 18(1):38, 2026 (CC BY)",
+            ("Casu A., Chiusa G., Zagottis E., Genova G., Battilani P., Effect of Post-Harvest Management on Aspergillus flavus Growth and Aflatoxin Contamination of Stored Hazelnuts. Toxins 18(1):38, 2026 (CC BY)",
              "https://doi.org/10.3390/toxins18010038"),
-            ("Frontiers in Plant Science, 2026 — pre-harvest aflatoxin risk in hazelnut orchards",
+            ("Frontiers in Plant Science, 2026, pre-harvest aflatoxin risk in hazelnut orchards",
              "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2026.1791562/full"),
         ],
         "body": T(
-            """<p>Aflatoxins — toxic compounds produced mainly by the mould <em>Aspergillus flavus</em> — are the most important food safety risk for tree nuts and are strictly regulated in the EU and other import markets. A study published in January 2026 in the journal <em>Toxins</em> examined how post-harvest handling affects this risk, using hazelnuts from <strong>Azerbaijan</strong> over three years.</p>
+            """<p>Aflatoxins, toxic compounds produced mainly by the mould <em>Aspergillus flavus</em>, are the most important food safety risk for tree nuts and are strictly regulated in the EU and other import markets. A study published in January 2026 in the journal <em>Toxins</em> examined how post-harvest handling affects this risk, using hazelnuts from <strong>Azerbaijan</strong> over three years.</p>
 <h2>Key findings</h2>
 <ul>
 <li><strong>Drying is the decisive factor.</strong> Drying efficiency was the primary driver of fungal persistence and aflatoxin risk. Proper drying significantly reduced contamination regardless of storage conditions.</li>
 <li><strong>Storage matters less when drying is right.</strong> With adequate drying, storage temperature and shell condition had only a minimal influence.</li>
 <li><strong>Traditional sun-drying carries the highest risk.</strong> Drying on the ground or under variable weather was associated with elevated risk, while mechanical drying and well-controlled storage significantly reduced contamination.</li>
 </ul>
-<p>A companion study in <em>Frontiers in Plant Science</em> (2026) found low aflatoxin levels in orchards at harvest, but markedly higher contamination in late-harvested nuts — particularly those collected from the ground. The authors point to orchard microclimate and harvest timing as the main pre-harvest drivers and recommend Good Agricultural Practices, timely harvest and rapid post-harvest drying.</p>
+<p>A companion study in <em>Frontiers in Plant Science</em> (2026) found low aflatoxin levels in orchards at harvest, but markedly higher contamination in late-harvested nuts, particularly those collected from the ground. The authors point to orchard microclimate and harvest timing as the main pre-harvest drivers and recommend Good Agricultural Practices, timely harvest and rapid post-harvest drying.</p>
 <h2>What it means for buyers</h2>
 <p>The research confirms that aflatoxin control starts long before a container is loaded. When qualifying a hazelnut supplier, buyers should ask how and how quickly nuts are dried after harvest, how storage is controlled, and how every lot is tested before shipment.</p>
-<p>At Bionut, harvest, processing and packing take place within one integrated operation. Raw material is inspected on arrival, every lot is checked in our in-house laboratory, and full traceability links each shipment back to the orchard — all under an FSSC 22000 and ISO 22000:2018 certified food safety system.</p>""",
-            """<p>Aflatoksinlər — əsasən <em>Aspergillus flavus</em> göbələyi tərəfindən əmələ gələn toksik birləşmələr — qoz-fındıq üçün ən mühüm qida təhlükəsizliyi riskidir və AB-də, eləcə də digər idxal bazarlarında ciddi şəkildə tənzimlənir. 2026-cı ilin yanvarında <em>Toxins</em> jurnalında dərc edilmiş araşdırma üç il ərzində <strong>Azərbaycan</strong> fındığı üzərində yığımdan sonrakı əməliyyatların bu riskə təsirini öyrənib.</p>
+<p>At Bionut, harvest, processing and packing take place within one integrated operation. Raw material is inspected on arrival, every lot is checked in our in-house laboratory, and full traceability links each shipment back to the orchard, all under an FSSC 22000 and ISO 22000:2018 certified food safety system.</p>""",
+            """<p>Aflatoksinlər, əsasən <em>Aspergillus flavus</em> göbələyi tərəfindən əmələ gələn toksik birləşmələr, qoz-fındıq üçün ən mühüm qida təhlükəsizliyi riskidir və AB-də, eləcə də digər idxal bazarlarında ciddi şəkildə tənzimlənir. 2026-cı ilin yanvarında <em>Toxins</em> jurnalında dərc edilmiş araşdırma üç il ərzində <strong>Azərbaycan</strong> fındığı üzərində yığımdan sonrakı əməliyyatların bu riskə təsirini öyrənib.</p>
 <h2>Əsas nəticələr</h2>
 <ul>
 <li><strong>Qurutma həlledici amildir.</strong> Göbələyin qalması və aflatoksin riskini əsasən qurutmanın səmərəliliyi müəyyən edir. Düzgün qurutma saxlama şəraitindən asılı olmayaraq çirklənməni əhəmiyyətli dərəcədə azaldıb.</li>
 <li><strong>Qurutma düzgün olduqda saxlama daha az təsir edir.</strong> Kifayət qədər qurutma şəraitində saxlama temperaturu və qabığın vəziyyəti minimal təsir göstərib.</li>
 <li><strong>Ənənəvi günəşdə qurutma ən yüksək risk daşıyır.</strong> Yerdə və ya dəyişkən hava şəraitində qurutma yüksək risklə əlaqələndirilib, mexaniki qurutma və yaxşı idarə olunan saxlama isə çirklənməni xeyli azaldıb.</li>
 </ul>
-<p><em>Frontiers in Plant Science</em> jurnalındakı müşayiətedici araşdırma (2026) yığım zamanı bağlarda aflatoksin səviyyəsinin aşağı olduğunu, gec yığılmış — xüsusilə yerdən toplanmış — fındıqda isə çirklənmənin xeyli yüksək olduğunu göstərib. Müəlliflər bağın mikroiqlimini və yığım vaxtını yığımdan əvvəlki əsas amillər kimi göstərir və Yaxşı Kənd Təsərrüfatı Təcrübələrini, vaxtında yığımı və sürətli qurutmanı tövsiyə edir.</p>
+<p><em>Frontiers in Plant Science</em> jurnalındakı müşayiətedici araşdırma (2026) yığım zamanı bağlarda aflatoksin səviyyəsinin aşağı olduğunu, gec yığılmış, xüsusilə yerdən toplanmış, fındıqda isə çirklənmənin xeyli yüksək olduğunu göstərib. Müəlliflər bağın mikroiqlimini və yığım vaxtını yığımdan əvvəlki əsas amillər kimi göstərir və Yaxşı Kənd Təsərrüfatı Təcrübələrini, vaxtında yığımı və sürətli qurutmanı tövsiyə edir.</p>
 <h2>Alıcılar üçün nə deməkdir</h2>
 <p>Araşdırma təsdiq edir ki, aflatoksin nəzarəti konteyner yüklənməzdən çox əvvəl başlayır. Fındıq tədarükçüsünü qiymətləndirərkən alıcılar fındığın yığımdan sonra necə və nə qədər tez qurudulduğunu, saxlamanın necə idarə olunduğunu və hər partiyanın göndərişdən əvvəl necə yoxlanıldığını soruşmalıdır.</p>
-<p>Bionut-da yığım, emal və qablaşdırma vahid inteqrasiya olunmuş istehsal daxilində həyata keçirilir. Xammal daxil olarkən yoxlanılır, hər partiya daxili laboratoriyamızda yoxlanılır, tam izlənilmə isə hər göndərişi bağa qədər əlaqələndirir — hamısı FSSC 22000 və ISO 22000:2018 sertifikatlı qida təhlükəsizliyi sistemi çərçivəsində.</p>""",
-            """<p>Афлатоксины — токсичные соединения, вырабатываемые главным образом плесневым грибом <em>Aspergillus flavus</em>, — важнейший риск безопасности для орехов; они строго регулируются в ЕС и на других импортных рынках. Исследование, опубликованное в январе 2026 года в журнале <em>Toxins</em>, в течение трёх лет изучало, как послеуборочная обработка влияет на этот риск, на примере фундука из <strong>Азербайджана</strong>.</p>
+<p>Bionut-da yığım, emal və qablaşdırma vahid inteqrasiya olunmuş istehsal daxilində həyata keçirilir. Xammal daxil olarkən yoxlanılır, hər partiya daxili laboratoriyamızda yoxlanılır, tam izlənilmə isə hər göndərişi bağa qədər əlaqələndirir, hamısı FSSC 22000 və ISO 22000:2018 sertifikatlı qida təhlükəsizliyi sistemi çərçivəsində.</p>""",
+            """<p>Афлатоксины, токсичные соединения, вырабатываемые главным образом плесневым грибом <em>Aspergillus flavus</em>, представляют важнейший риск безопасности для орехов; они строго регулируются в ЕС и на других импортных рынках. Исследование, опубликованное в январе 2026 года в журнале <em>Toxins</em>, в течение трёх лет изучало, как послеуборочная обработка влияет на этот риск, на примере фундука из <strong>Азербайджана</strong>.</p>
 <h2>Главные выводы</h2>
 <ul>
-<li><strong>Сушка — решающий фактор.</strong> Эффективность сушки — основной фактор сохранения грибка и риска афлатоксинов. Правильная сушка значительно снижала загрязнение независимо от условий хранения.</li>
+<li><strong>Сушка: решающий фактор.</strong> Эффективность сушки является основным фактором сохранения грибка и риска афлатоксинов. Правильная сушка значительно снижала загрязнение независимо от условий хранения.</li>
 <li><strong>При правильной сушке хранение влияет меньше.</strong> При достаточной сушке температура хранения и состояние скорлупы оказывали минимальное влияние.</li>
 <li><strong>Традиционная сушка на солнце наиболее рискованна.</strong> Сушка на земле или при переменчивой погоде связана с повышенным риском, а механическая сушка и контролируемое хранение значительно снижают загрязнение.</li>
 </ul>
-<p>Сопутствующее исследование в <em>Frontiers in Plant Science</em> (2026) показало низкий уровень афлатоксинов в садах на момент сбора, но заметно более высокое загрязнение у поздно собранных орехов — особенно поднятых с земли. Авторы называют главными доуборочными факторами микроклимат сада и сроки сбора и рекомендуют надлежащую сельскохозяйственную практику, своевременный сбор и быструю сушку.</p>
+<p>Сопутствующее исследование в <em>Frontiers in Plant Science</em> (2026) показало низкий уровень афлатоксинов в садах на момент сбора, но заметно более высокое загрязнение у поздно собранных орехов, особенно поднятых с земли. Авторы называют главными доуборочными факторами микроклимат сада и сроки сбора и рекомендуют надлежащую сельскохозяйственную практику, своевременный сбор и быструю сушку.</p>
 <h2>Что это значит для покупателей</h2>
 <p>Исследование подтверждает: контроль афлатоксинов начинается задолго до загрузки контейнера. Оценивая поставщика фундука, покупателям стоит узнать, как и насколько быстро орехи сушат после сбора, как контролируется хранение и как проверяется каждая партия перед отгрузкой.</p>
-<p>В Bionut сбор, переработка и упаковка выполняются в рамках единого интегрированного производства. Сырьё проверяется при поступлении, каждая партия — в нашей собственной лаборатории, а полная прослеживаемость связывает каждую отгрузку с садом — всё в рамках системы безопасности, сертифицированной по FSSC 22000 и ISO 22000:2018.</p>"""),
+<p>В Bionut сбор, переработка и упаковка выполняются в рамках единого интегрированного производства. Сырьё проверяется при поступлении, каждая партия, в нашей собственной лаборатории, а полная прослеживаемость связывает каждую отгрузку с садом, всё в рамках системы безопасности, сертифицированной по FSSC 22000 и ISO 22000:2018.</p>"""),
     },
 ]

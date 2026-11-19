@@ -169,7 +169,7 @@ def header(c):
     items = "".join('<li><a href="%s"%s>%s</a></li>' % (c.url(k), ' aria-current="page"' if k == cur else "", e(c.t(lbl))) for k, lbl in C.NAV)
     return f"""<header class="site-header">
   <div class="wrap header-inner">
-    <a class="brand" href="{c.url('home')}" aria-label="Bionut — {e(c.t(C.NAV[0][1]))}">
+    <a class="brand" href="{c.url('home')}" aria-label="Bionut, {e(c.t(C.NAV[0][1]))}">
       <img src="{c.asset('brand/bionut-logo.png')}" alt="BIONUT logo" width="106" height="102">
       <span class="brand-text"><strong>BIONUT</strong><span>{e(c.t(C.UI["tagline"]))}</span></span>
     </a>
@@ -397,29 +397,40 @@ def page_home(c):
     insights = "".join(insight_card(c, a) for a in C.ARTICLES)
     ld = '<script type="application/ld+json">%s</script>' % json.dumps(org_ld(c), ensure_ascii=False)
     hero_img = c.asset("img/hero-orchard")
+    slides = "".join('<div class="hero-slide%s" data-cap="%s">%s</div>' % (
+        " is-active" if i == 0 else "", e(c.t(cap)), pic(c, img, c.t(cap), sizes="100vw", priority=(i == 0), loading="eager" if i < 2 else "lazy"))
+        for i, (img, lbl, cap) in enumerate(H["slides"]))
+    dots = "".join('<button type="button" role="tab" class="hero-dot%s" aria-selected="%s" aria-label="%s"><span class="n">%02d</span><span class="l">%s</span><span class="bar"><i></i></span></button>' % (
+        " is-active" if i == 0 else "", "true" if i == 0 else "false", e(c.t(lbl)), i + 1, e(c.t(lbl)))
+        for i, (img, lbl, cap) in enumerate(H["slides"]))
+    words = " ".join('<span class="w"><span style="--d:%d">%s</span></span>' % (i + 1, e(w)) for i, w in enumerate(c.t(H["h1"]).split()))
+    marquee = "".join('<span>%s</span><i aria-hidden="true"></i>' % e(c.t(m)) for m in H["marquee"])
     preload = '<link rel="preload" as="image" type="image/avif" href="%s.avif" fetchpriority="high">' % hero_img
-    return head(c, c.t(H["title"]), c.t(H["meta"]), extra=ld + preload) + header(c) + f"""<main id="main">
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <span class="eyebrow">{e(c.t(H['eyebrow']))}</span>
-      <h1>{e(c.t(H['h1']))}</h1>
-      <p class="lead">{e(c.t(H['lead']))}</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="{c.url('products')}">{e(c.t(H['cta1']))} {ICON['arrow']}</a>
-        <a class="btn btn-outline" href="{c.url('contact')}">{e(c.t(H['cta2']))}</a>
+    return head(c, c.t(H["title"]), c.t(H["meta"]), extra=ld + preload).replace("<body>", '<body class="has-hero">') + header(c) + f"""<main id="main">
+<section class="hero-full" aria-roledescription="carousel">
+  <div class="hero-slides">{slides}</div>
+  <div class="hero-scrim" aria-hidden="true"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-content">
+      <span class="eyebrow light hero-anim" style="--d:0">{e(c.t(H['eyebrow']))}</span>
+      <h1>{words}</h1>
+      <p class="lead hero-anim" style="--d:6">{e(c.t(H['lead']))}</p>
+      <div class="hero-actions hero-anim" style="--d:8">
+        <a class="btn btn-gold" href="{c.url('products')}">{e(c.t(H['cta1']))} {ICON['arrow']}</a>
+        <a class="btn btn-ghost-light" href="{c.url('contact')}">{e(c.t(H['cta2']))}</a>
       </div>
     </div>
-    <div class="hero-media">
-      {pic(c, 'hero-orchard', c.t(H['hero_caption']), sizes='(max-width: 960px) 100vw, 55vw', priority=True)}
-      <div class="hero-badge" aria-hidden="true">{e(c.t(C.UI["since"]))}<strong>2005</strong>{e(c.t(C.UI["gabala"]))}</div>
-      <div class="hero-caption">{e(c.t(H['hero_caption']))}</div>
+    <div class="hero-bottom hero-anim" style="--d:10">
+      <div class="hero-dots" role="tablist">{dots}</div>
+      <p class="hero-cap" aria-live="polite">{e(c.t(H['slides'][0][2]))}</p>
+      <a class="hero-scroll" href="#intro"><span>{e(c.t(H['scroll']))}</span><i></i></a>
     </div>
   </div>
 </section>
 <section class="stats" aria-label="Bionut in numbers"><div class="wrap stats-grid">{stats}</div></section>
+<div class="marquee" aria-hidden="true"><div class="marquee-track"><div class="marquee-group">{marquee}</div><div class="marquee-group">{marquee}</div></div></div>
 
-<section class="section">
+<section class="section" id="intro">
   <div class="wrap split">
     <div class="split-media reveal">
       <div class="m1">{pic(c, 'orchard-rows', 'Bionut hazelnut orchard in Gabala', sizes='(max-width: 900px) 92vw, 600px')}</div>
@@ -495,7 +506,7 @@ def page_home(c):
 def page_products(c):
     P = C.PRODUCTS_PAGE
     cards = "".join(product_card(c, p, i) for i, p in enumerate(C.PRODUCTS))
-    return head(c, c.t(P["title"]) + " — Bionut", c.t(P["meta"])) + header(c) + f"""<main id="main">
+    return head(c, c.t(P["title"]) + " | Bionut", c.t(P["meta"])) + header(c) + f"""<main id="main">
 {page_hero(c, c.t(P['eyebrow']), c.t(P['h1']), c.t(P['lead']), [('products', c.t(P['title']))])}
 <section class="section section-cream"><div class="wrap"><div class="product-grid">{cards}</div></div></section>
 <section class="section">
@@ -539,7 +550,7 @@ def page_product(c, p):
           "image": SITE + "/assets/img/%s.webp" % p["img"], "brand": {"@type": "Brand", "name": "Bionut"},
           "countryOfOrigin": "AZ", "manufacturer": {"@type": "Organization", "name": "Bionut"}}
     spec_href = c.asset("specs/bionut-%s-specification.pdf" % p["slug"])
-    return head(c, name + " — Bionut", c.t(p["short"]) + " " + c.t(U["moq"])[:80], og_img="og-image.jpg",
+    return head(c, name + " | Bionut", c.t(p["short"]) + " " + c.t(U["moq"])[:80], og_img="og-image.jpg",
                 extra='<script type="application/ld+json">%s</script>' % json.dumps(ld, ensure_ascii=False)) + header(c) + f"""<main id="main">
 <section class="page-hero" style="padding-bottom:0;border:0">
   <div class="wrap">{breadcrumb(c, [('products', c.t(C.PRODUCTS_PAGE['title'])), (c.key, name)])}</div>
@@ -578,12 +589,12 @@ def page_product(c, p):
 
 def page_process(c):
     P = C.PROCESS_PAGE
-    return head(c, c.t(P["title"]) + " — Bionut", c.t(P["meta"])) + header(c) + f"""<main id="main">
+    return head(c, c.t(P["title"]) + " | Bionut", c.t(P["meta"])) + header(c) + f"""<main id="main">
 {page_hero(c, c.t(P['eyebrow']), c.t(P['h1']), c.t(P['lead']), [('process', c.t(P['title']))])}
 <div class="banner-img">{pic(c, 'hero-orchard', 'Bionut orchards in Gabala', sizes='100vw')}</div>
 <section class="section">
   <div class="wrap">
-    <div class="section-head reveal"><div><span class="eyebrow">01 — 04</span><h2>{e(c.t(P['stages_h']))}</h2></div><p>{e(c.t(C.HOME['process_h']))}</p></div>
+    <div class="section-head reveal"><div><span class="eyebrow">01 / 04</span><h2>{e(c.t(P['stages_h']))}</h2></div><p>{e(c.t(C.HOME['process_h']))}</p></div>
     {steps_block(c)}
   </div>
 </section>
@@ -619,7 +630,7 @@ def page_certs(c):
   <div class="seal" aria-hidden="true">{e(ct['mark'])}</div>
   <div><h2>{e(c.t(ct['name']))}</h2><p>{e(c.t(ct['desc']))}</p><dl class="cert-meta">{meta}</dl><div class="cert-actions">{act}</div></div>
 </article>""")
-    return head(c, c.t(P["title"]) + " — Bionut", c.t(P["meta"])) + header(c) + f"""<main id="main">
+    return head(c, c.t(P["title"]) + " | Bionut", c.t(P["meta"])) + header(c) + f"""<main id="main">
 {page_hero(c, c.t(P['eyebrow']), c.t(P['h1']), c.t(P['lead']), [('certifications', c.t(P['title']))])}
 <section class="section"><div class="wrap">{''.join(out)}</div></section>
 <section class="section section-cream">
@@ -640,13 +651,13 @@ def page_about(c):
     values = "".join('<div class="value reveal reveal-d%d"><h3>%s</h3><p>%s</p></div>' % (i, e(c.t(t)), e(c.t(d))) for i, (t, d) in enumerate(A["values"]))
     team = "".join(f"""<div class="member reveal"><div class="avatar" aria-hidden="true">{m['initials']}</div><div>
   <h3>{e(c.t(m['name']))}</h3><div class="role">{e(c.t(m['role']))}</div><a href="mailto:{m['email']}">{m['email']}</a></div></div>""" for m in A["team"])
-    return head(c, c.t(A["title"]) + " — Bionut", c.t(A["meta"])) + header(c) + f"""<main id="main">
+    return head(c, c.t(A["title"]) + " | Bionut", c.t(A["meta"])) + header(c) + f"""<main id="main">
 {page_hero(c, c.t(A['eyebrow']), c.t(A['h1']), c.t(A['lead']), [('about', c.t(A['title']))])}
 <div class="banner-img">{pic(c, 'orchard-rows', 'Hazelnut orchard rows in Gabala', sizes='100vw', priority=True)}</div>
 <section class="section">
   <div class="wrap">
     <div class="facts" style="margin-bottom:clamp(56px,8vw,96px)">{facts}</div>
-    <div class="section-head reveal" style="margin-bottom:40px"><div><span class="eyebrow">2005 — 2026</span><h2>{e(c.t(A['story_h']))}</h2></div></div>
+    <div class="section-head reveal" style="margin-bottom:40px"><div><span class="eyebrow">2005-2026</span><h2>{e(c.t(A['story_h']))}</h2></div></div>
     <div class="story reveal">{story}</div>
   </div>
 </section>
@@ -690,7 +701,7 @@ def page_contact(c):
     cert_text = {"en": "Please send us a copy of your %s certificate.", "az": "Zəhmət olmasa, %s sertifikatınızın nüsxəsini göndərin.",
                  "ru": "Пожалуйста, пришлите копию вашего сертификата %s."}[c.lang]
     map_src = "https://www.google.com/maps?q=%s&output=embed" % C.COMPANY["map_query"].replace(" ", "+")
-    return head(c, c.t(K["title"]) + " — Bionut", c.t(K["meta"])) + header(c) + f"""<main id="main">
+    return head(c, c.t(K["title"]) + " | Bionut", c.t(K["meta"])) + header(c) + f"""<main id="main">
 {page_hero(c, c.t(K['eyebrow']), c.t(K['h1']), c.t(K['lead']), [('contact', c.t(K['title']))])}
 <section class="section section-cream">
   <div class="wrap contact-grid">
@@ -732,7 +743,7 @@ def page_contact(c):
 def page_insights(c):
     P = C.INSIGHTS_PAGE
     cards = "".join(insight_card(c, a) for a in C.ARTICLES)
-    return head(c, c.t(P["title"]) + " — Bionut", c.t(P["meta"])) + header(c) + f"""<main id="main">
+    return head(c, c.t(P["title"]) + " | Bionut", c.t(P["meta"])) + header(c) + f"""<main id="main">
 {page_hero(c, c.t(P['eyebrow']), c.t(P['h1']), c.t(P['lead']), [('insights', c.t(P['title']))])}
 <section class="section section-cream"><div class="wrap"><div class="insight-grid">{cards}</div></div></section>
 {cta_block(c)}
@@ -742,13 +753,13 @@ def page_insights(c):
 
 def page_article(c, a):
     title = c.t(a["title"])
-    srcs = "".join('<li>%s — <a href="%s" target="_blank" rel="noopener">%s</a></li>' % (e(t), e(u), e(u)) for t, u in a["sources"])
+    srcs = "".join('<li>%s: <a href="%s" target="_blank" rel="noopener">%s</a></li>' % (e(t), e(u), e(u)) for t, u in a["sources"])
     ld = {"@context": "https://schema.org", "@type": "Article", "headline": title, "datePublished": a["date"],
           "inLanguage": c.lang, "image": SITE + "/assets/img/%s.webp" % a["img"],
           "publisher": {"@type": "Organization", "name": "Bionut", "logo": {"@type": "ImageObject", "url": SITE + "/assets/brand/bionut-logo.png"}}}
     others = [x for x in C.ARTICLES if x is not a]
     more = "".join(insight_card(c, x) for x in others)
-    return head(c, title + " — Bionut", c.t(a["excerpt"]), extra='<script type="application/ld+json">%s</script>' % json.dumps(ld, ensure_ascii=False)) + header(c) + f"""<main id="main">
+    return head(c, title + " | Bionut", c.t(a["excerpt"]), extra='<script type="application/ld+json">%s</script>' % json.dumps(ld, ensure_ascii=False)) + header(c) + f"""<main id="main">
 <section class="article-hero">
   <div class="wrap">
     {breadcrumb(c, [('insights', c.t(C.INSIGHTS_PAGE['title'])), (c.key, title)])}
@@ -781,7 +792,7 @@ def page_404():
     body = f"""<main id="main"><section class="page-hero" style="min-height:60vh;display:flex;align-items:center"><div class="wrap">
 <span class="eyebrow">404</span><h1>Səhifə tapılmadı</h1><p class="lead" style="margin-bottom:32px">Axtardığınız səhifə köçürülüb və ya artıq mövcud deyil. / Page not found.</p>
 <a class="btn btn-primary" href="/">Ana səhifəyə qayıt {ICON['arrow']}</a></div></section></main>"""
-    return head(c, "Səhifə tapılmadı — Bionut", "Səhifə tapılmadı") + header(c) + body + footer(c)
+    return head(c, "Səhifə tapılmadı | Bionut", "Səhifə tapılmadı") + header(c) + body + footer(c)
 
 
 # ============================================================ spec sheet PDFs (minimal writer)

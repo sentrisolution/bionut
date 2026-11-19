@@ -1,4 +1,4 @@
-/* BIONUT — site behaviour (no dependencies) */
+/* BIONUT: site behaviour (no dependencies) */
 (function () {
   "use strict";
   var doc = document.documentElement;
@@ -28,6 +28,42 @@
     window.addEventListener("resize", function () {
       if (window.innerWidth > 1120) { document.body.classList.remove("menu-open"); toggle.setAttribute("aria-expanded", "false"); }
     });
+  }
+
+  /* Hero slideshow */
+  var hero = document.querySelector(".hero-full");
+  if (hero) {
+    var slides = hero.querySelectorAll(".hero-slide");
+    var dots = hero.querySelectorAll(".hero-dot");
+    var cap = hero.querySelector(".hero-cap");
+    var SLIDE_MS = 6500, cur = 0, timer = null;
+    hero.style.setProperty("--slide-ms", SLIDE_MS + "ms");
+    function go(n) {
+      if (n === cur) return;
+      slides[cur].classList.remove("is-active");
+      dots[cur].classList.remove("is-active");
+      dots[cur].setAttribute("aria-selected", "false");
+      cur = (n + slides.length) % slides.length;
+      var img = slides[cur].querySelector("img");
+      if (img && img.loading === "lazy") img.loading = "eager";
+      // restart the zoom + progress animations
+      void slides[cur].offsetWidth;
+      slides[cur].classList.add("is-active");
+      dots[cur].classList.add("is-active");
+      dots[cur].setAttribute("aria-selected", "true");
+      if (cap) {
+        cap.style.opacity = "0";
+        setTimeout(function () { cap.textContent = slides[cur].getAttribute("data-cap"); cap.style.opacity = "1"; }, 350);
+      }
+      var nxt = slides[(cur + 1) % slides.length].querySelector("img");
+      if (nxt && nxt.loading === "lazy") nxt.loading = "eager";
+    }
+    function start() { stop(); if (!reduce) timer = setInterval(function () { go(cur + 1); }, SLIDE_MS); }
+    function stop() { if (timer) clearInterval(timer); timer = null; }
+    dots.forEach(function (d, i) { d.addEventListener("click", function () { go(i); start(); }); });
+    document.addEventListener("visibilitychange", function () { if (document.hidden) stop(); else start(); });
+    if (reduce) hero.classList.add("paused");
+    start();
   }
 
   /* Reveal on scroll + count-up */
@@ -158,7 +194,7 @@
         if (v) lines.push(inp.getAttribute("data-label") + ": " + v);
       });
       var company = form.querySelector("#f-company").value.trim();
-      var subject = form.getAttribute("data-subject") + (company ? " — " + company : "");
+      var subject = form.getAttribute("data-subject") + (company ? " | " + company : "");
       window.location.href = "mailto:" + form.getAttribute("data-to") + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n"));
     });
   }

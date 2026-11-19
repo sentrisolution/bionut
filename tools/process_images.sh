@@ -14,6 +14,7 @@ wide img19.jpg warehouse-pallets 1600; wide img16.jpg forklift-loading 1000; wid
 wide img21.jpg big-bags 1000
 tone(){ convert "$1" $grade \( +clone -fill "#FAF7F2" -colorize 100 \) -compose Multiply -composite "$T/s2.png"; out "$T/s2.png" "$2"; }
 sq(){ convert "$R/$1" -gravity "$3" -crop "$4" +repage -resize 1000x1000^ -gravity center -extent 1000x1000 "$T/s.png"; tone "$T/s.png" "$2"; }
+convert $R/img03.jpg -filter Lanczos -resize 1800x -unsharp 0x0.8+0.6+0.02 $grade $T/a.png; out $T/a.png hero-branch
 sq img12.jpg p-natural south 896x896+0+150
 sq img01.jpg p-blanched center 600x600+0+0
 sq img14.jpg p-roasted south 848x848+0+180
