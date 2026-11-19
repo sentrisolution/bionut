@@ -12,6 +12,11 @@ wide img22.jpg orchard-rows 1600; wide img04.jpg orchard-young 1000; wide img05.
 wide img07.jpg catkins 1200; wide img03.jpg hazel-branch 1200; wide img17.jpg warehouse-hall 1100
 wide img19.jpg warehouse-pallets 1600; wide img16.jpg forklift-loading 1000; wide img20.jpg forklift-pallet 1000
 wide img21.jpg big-bags 1000
+# Client-supplied facility photos (19.11.2026)
+wide img23-branch-cluster.jpg step-cultivation 1200; wide img24-silos-hall.jpg step-processing 1400
+wide img25-clean-hall.jpg processing-hall 1400; wide img26-sorting.jpg step-quality 776
+wide img27-truck-bigbags.jpg truck-bigbags 900
+convert $R/img24-silos-hall.jpg -filter Lanczos -resize 1800x $grade $T/a.png; out $T/a.png hero-production
 tone(){ convert "$1" $grade \( +clone -fill "#FAF7F2" -colorize 100 \) -compose Multiply -composite "$T/s2.png"; out "$T/s2.png" "$2"; }
 sq(){ convert "$R/$1" -gravity "$3" -crop "$4" +repage -resize 1000x1000^ -gravity center -extent 1000x1000 "$T/s.png"; tone "$T/s.png" "$2"; }
 convert $R/img03.jpg -filter Lanczos -resize 1800x -unsharp 0x0.8+0.6+0.02 $grade $T/a.png; out $T/a.png hero-branch

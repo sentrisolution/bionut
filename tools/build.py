@@ -290,11 +290,43 @@ def quality_block(c, light=False):
     return '<div class="quality-grid%s">%s</div>' % (" light-quality" if light else "", items)
 
 
-def cert_cards(c):
-    return '<div class="cert-row">%s</div>' % "".join(
-        '<div class="cert-card reveal reveal-d%d"><div class="seal" aria-hidden="true">%s</div><h3>%s</h3><p>%s</p></div>' % (
-            i % 4, e(ct["mark"]), e(c.t(ct["name"])), e(c.t(ct["desc"]))) for i, ct in enumerate(C.CERTS))
+def cert_logo(c, ct, cls="cert-logo"):
+    w, h = CERT_LOGO_DIMS[ct["logo"]]
+    return '<div class="%s"><img src="%s" alt="%s" width="%d" height="%d" loading="lazy" decoding="async"></div>' % (
+        cls, c.asset("brand/certs/%s.webp" % ct["logo"]), e(ct["code"]), w, h)
 
+
+def cert_anchor(ct):
+    return re.sub('[^a-z0-9]+', '-', ct['code'].lower())
+
+
+def cert_href(c, ct):
+    """Real document if supplied, otherwise that certificate's own entry on the certifications page."""
+    if ct["pdf"]:
+        return c.asset("certificates/" + ct["pdf"]), True
+    return c.url("certifications") + "#" + cert_anchor(ct), False
+
+
+def cert_cards(c):
+    P = C.CERT_PAGE
+    out = []
+    for i, ct in enumerate(C.CERTS):
+        href, is_doc = cert_href(c, ct)
+        label = "%s: %s" % (c.t(ct["name"]), c.t(P["view_one"]))
+        extra = ' target="_blank" rel="noopener"' if is_doc else ""
+        if is_doc:
+            label += " (PDF, %s)" % c.t(P["new_tab"])
+        out.append('<a class="cert-card reveal reveal-d%d" href="%s"%s aria-label="%s">%s<h3>%s</h3><p>%s</p><span class="link-arrow">%s %s</span></a>' % (
+            i % 4, href, extra, e(label), cert_logo(c, ct), e(c.t(ct["name"])), e(c.t(ct["desc"])), e(c.t(P["view_one"])), ICON["arrow"]))
+    return '<div class="cert-row">%s</div>' % "".join(out)
+
+
+CERT_LOGO_DIMS = {}
+_cd = os.path.join(ROOT, "assets", "brand", "certs")
+for _f in sorted(os.listdir(_cd)):
+    if _f.endswith(".webp"):
+        _o = subprocess.run(["identify", "-format", "%w %h", os.path.join(_cd, _f)], capture_output=True).stdout.decode().split()
+        CERT_LOGO_DIMS[_f[:-5]] = (int(_o[0]), int(_o[1]))
 
 _map = None
 
@@ -607,9 +639,9 @@ def page_process(c):
 </section>
 <section class="section">
   <div class="wrap gallery-strip">
-    <figure class="reveal">{pic(c, 'warehouse-pallets', 'Palletised export shipments', sizes='(max-width: 760px) 100vw, 50vw')}</figure>
+    <figure class="reveal">{pic(c, 'processing-hall', 'Bionut processing hall', sizes='(max-width: 760px) 100vw, 50vw')}</figure>
     <figure class="reveal reveal-d1">{pic(c, 'forklift-loading', 'Loading export pallets', sizes='(max-width: 760px) 50vw, 25vw')}</figure>
-    <figure class="reveal reveal-d2">{pic(c, 'big-bags', '1000 kg big bags', sizes='(max-width: 760px) 50vw, 25vw')}</figure>
+    <figure class="reveal reveal-d2">{pic(c, 'truck-bigbags', 'Big bags loaded for export', sizes='(max-width: 760px) 50vw, 25vw')}</figure>
   </div>
 </section>
 {cta_block(c, 'warehouse-hall')}
@@ -624,11 +656,12 @@ def page_certs(c):
         req = c.t(P["on_request"])
         meta = "".join('<div><dt>%s</dt><dd>%s</dd></div>' % (e(c.t(P[k])), e(ct[k] or req)) for k in ("number", "issuer", "valid"))
         if ct["pdf"]:
-            act = '<a class="btn btn-primary" href="%s" download>%s %s</a>' % (c.asset("certificates/" + ct["pdf"]), ICON["download"], e(c.t(P["download"])))
+            act = '<a class="btn btn-primary" href="%s" target="_blank" rel="noopener" aria-label="%s">%s %s</a>' % (
+                c.asset("certificates/" + ct["pdf"]), e("%s: %s (PDF, %s)" % (c.t(ct["name"]), c.t(P["view_one"]), c.t(P["new_tab"]))), ICON["download"], e(c.t(P["view_one"])))
         else:
             act = '<a class="btn btn-primary" href="%s">%s %s</a>' % (c.url("contact", query="?cert=" + ct["code"].replace(" ", "%20")), e(c.t(P["request"])), ICON["arrow"])
-        out.append(f"""<article class="cert-detail reveal" id="{re.sub('[^a-z0-9]+', '-', ct['code'].lower())}">
-  <div class="seal" aria-hidden="true">{e(ct['mark'])}</div>
+        out.append(f"""<article class="cert-detail reveal" id="{cert_anchor(ct)}">
+  {cert_logo(c, ct, "cert-logo cert-logo-lg")}
   <div><h2>{e(c.t(ct['name']))}</h2><p>{e(c.t(ct['desc']))}</p><dl class="cert-meta">{meta}</dl><div class="cert-actions">{act}</div></div>
 </article>""")
     return head(c, c.t(P["title"]) + " | Bionut", c.t(P["meta"])) + header(c) + f"""<main id="main">
