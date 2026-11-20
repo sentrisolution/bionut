@@ -553,7 +553,7 @@ def page_products(c):
     </div>
     <div class="split-media reveal reveal-d1">
       <div class="m1">{pic(c, 'big-bags', 'Bionut big bags in warehouse', sizes='(max-width: 900px) 92vw, 600px')}</div>
-      <div class="m2">{pic(c, 'g-natural-carton2', 'Vacuum-packed hazelnut kernels', sizes='280px')}</div>
+      <div class="m2">{pic(c, 'g-mixed', 'Bionut natural and roasted hazelnut kernels and hazelnut flour', sizes='280px')}</div>
     </div>
   </div>
 </section>
@@ -699,7 +699,7 @@ def page_about(c):
   <div class="wrap gallery-strip">
     <figure class="reveal">{pic(c, 'orchard-young', 'Young hazelnut orchard', sizes='(max-width: 760px) 100vw, 50vw')}</figure>
     <figure class="reveal reveal-d1">{pic(c, 'orchard-tree', 'Hazelnut tree in Gabala', sizes='(max-width: 760px) 50vw, 25vw')}</figure>
-    <figure class="reveal reveal-d2">{pic(c, 'hazel-branch', 'Hazelnuts ripening on the branch', sizes='(max-width: 760px) 50vw, 25vw')}</figure>
+    <figure class="reveal reveal-d2">{pic(c, 'orchard-branch', 'Hazelnuts ripening on the branch in Gabala', sizes='(max-width: 760px) 50vw, 25vw')}</figure>
   </div>
 </section>
 <section class="section section-choc on-dark">

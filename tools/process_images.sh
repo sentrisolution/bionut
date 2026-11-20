@@ -20,9 +20,9 @@ convert $R/img24-silos-hall.jpg -filter Lanczos -resize 1800x $grade $T/a.png; o
 tone(){ convert "$1" $grade \( +clone -fill "#FAF7F2" -colorize 100 \) -compose Multiply -composite "$T/s2.png"; out "$T/s2.png" "$2"; }
 sq(){ convert "$R/$1" -gravity "$3" -crop "$4" +repage -resize 1000x1000^ -gravity center -extent 1000x1000 "$T/s.png"; tone "$T/s.png" "$2"; }
 convert $R/img03.jpg -filter Lanczos -resize 1800x -unsharp 0x0.8+0.6+0.02 $grade $T/a.png; out $T/a.png hero-branch
-sq img12.jpg p-natural south 896x896+0+150
+sq img12.jpg g-natural-kernels south 896x896+0+150
 sq img01.jpg p-blanched center 600x600+0+0
-sq img14.jpg p-roasted south 848x848+0+180
+sq img14.jpg g-roasted-kernels south 848x848+0+180
 sq img15.jpg p-chopped center 800x800+0+0
 sq img08.jpg p-flour center 772x772+0+0
 sq img03.jpg p-inshell east 727x727+0+0
@@ -31,5 +31,13 @@ sq img10.jpg g-natural-carton south 896x896+0+150
 sq img11.jpg g-natural-carton2 south 896x896+0+150
 sq img18.jpg g-blanched-vacuum center 1024x1024+0+0
 sq img09.jpg g-chopped-blanched center 800x800+0+0
+# Client-supplied Bionut pack shots (21.11.2026)
+sq img28-natural-bag.jpg p-natural north 768x768+0+240
+sq img29-natural-bag2.jpg g-natural-bag2 north 768x768+0+170
+sq img30-roasted-bag.jpg p-roasted north 768x768+0+150
+sq img31-roasted-orchard.jpg g-roasted-orchard north 768x768+0+290
+sq img32-roasted-dark.jpg g-roasted-dark north 768x768+0+150
+sq img33-mixed.jpg g-mixed north 768x768+0+220
+wide img34-orchard-branch.jpg orchard-branch 768
 convert $R/img02.jpg -resize 1200x630^ -gravity center -extent 1200x630 -quality 82 $O/og-image.jpg
 rm -rf "$T"; echo done

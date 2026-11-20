@@ -267,7 +267,7 @@ PROCESS_PAGE = {
 # ---------------------------------------------------------------- products
 PRODUCTS = [
     {
-        "slug": "natural-hazelnut-kernels", "img": "p-natural", "gallery": ["g-natural-vacuum", "g-natural-carton2", "g-natural-carton"],
+        "slug": "natural-hazelnut-kernels", "img": "p-natural", "gallery": ["g-natural-bag2", "g-natural-kernels", "g-natural-vacuum", "g-natural-carton2", "g-natural-carton"],
         "name": T("Natural Hazelnut Kernels", "Təbii Fındıq Ləpəsi", "Натуральные ядра фундука"),
         "short": T("Premium selected natural hazelnut kernels, carefully processed for food manufacturers.",
                    "Qida istehsalçıları üçün diqqətlə emal olunmuş, seçilmiş premium təbii fındıq ləpəsi.",
@@ -303,7 +303,7 @@ PRODUCTS = [
                  T("Snack mixes", "Qəlyanaltı qarışıqları", "Снековые смеси")],
     },
     {
-        "slug": "roasted-hazelnut-kernels", "img": "p-roasted", "gallery": ["p-blanched"],
+        "slug": "roasted-hazelnut-kernels", "img": "p-roasted", "gallery": ["g-roasted-orchard", "g-roasted-dark", "g-roasted-kernels"],
         "name": T("Roasted Hazelnut Kernels", "Qovrulmuş Fındıq Ləpəsi", "Обжаренные ядра фундука"),
         "short": T("Carefully roasted hazelnut kernels with a rich flavour and aroma, suitable for confectionery and food manufacturing.",
                    "Zəngin dad və ətirli, diqqətlə qovrulmuş fındıq ləpəsi, qənnadı və qida istehsalı üçün.",
@@ -339,7 +339,7 @@ PRODUCTS = [
                  T("Cereal & granola bars", "Dənli və qranola batonları", "Злаковые батончики и гранола")],
     },
     {
-        "slug": "hazelnut-flour", "img": "p-flour", "gallery": ["p-chopped"],
+        "slug": "hazelnut-flour", "img": "p-flour", "gallery": ["g-mixed", "p-chopped"],
         "name": T("Hazelnut Flour", "Fındıq Unu", "Ореховая мука из фундука"),
         "short": T("Finely processed hazelnut flour suitable for confectionery, bakery and other food manufacturing applications.",
                    "Qənnadı, çörək-bulka və digər qida istehsalı sahələri üçün incə üyüdülmüş fındıq unu.",
@@ -357,7 +357,7 @@ PRODUCTS = [
                  T("Confectionery", "Qənnadı məmulatları", "Кондитерские изделия")],
     },
     {
-        "slug": "in-shell-hazelnuts", "img": "p-inshell", "gallery": ["hazel-branch", "orchard-tree"],
+        "slug": "in-shell-hazelnuts", "img": "p-inshell", "gallery": ["orchard-branch", "hazel-branch", "orchard-tree"],
         "name": T("In-Shell Hazelnuts", "Qabıqlı Fındıq", "Фундук в скорлупе"),
         "short": T("Natural selected hazelnuts in their shells.",
                    "Qabığında təbii seçilmiş fındıq.",
